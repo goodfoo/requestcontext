@@ -1,6 +1,6 @@
 # requestcontext
 
-Package requestcontext is a contention free http.Request adapter for golang.org/x/net/context for [Go](https://golang.org/).
+Package requestcontext is a contention free http.Request adapter for [golang.org/x/net/context](https://godoc.org/golang.org/x/net/context) for [Go](https://golang.org/).
 
 Handy for passing request level context through middleware to your handlers, plus all the other context goodness.
 
@@ -12,11 +12,34 @@ Motivated by
 
 Not limited to string -> string !
 
-Use any comparable type as a key and any value type.
+Use any [comparable](https://golang.org/ref/spec#Comparison_operators) type as a key and **any** value type.
 
 Leverage all the awesomeness of the [golang.org/x/net/context](https://godoc.org/golang.org/x/net/context) using traditional [http.Handler's](https://golang.org/pkg/net/http/#Handler)
 
 ## Usage
+
+
+There are only two public functions, **Get** and **Set**
+
+Always call Get() first.  Get() returns the context or establishes a new chain if needed.
+
+```c := requestcontext.Get(r)```
+assuming r is a valid *http.Request
+
+Use or enhance the golang.org/x/net/context
+
+```go
+v := c.Value(key)
+
+c, cancelFunc := context.WithTimeout(c, 2 * duration.Second)
+c = context.WithValue(c, key, value)
+```
+
+Set() it back to the request if enhanced
+
+`requestcontext.Set(r, c)`
+
+## Example
 
 ```go
 package main
