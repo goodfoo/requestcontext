@@ -1,3 +1,4 @@
+// Package requestcontext is a contention free http.Request adapter for golang.org/x/net/context
 package requestcontext
 
 import (
@@ -20,7 +21,9 @@ func (w *decoratedReadCloser) Close() error {
 	return w.body.Close()
 }
 
-// Set add this context around the current context.
+// Set this context
+// call Get() prior and wrap the currency context with
+// one of the golang.org/x/net/context methods - see example
 func Set(r *http.Request, context context.Context) {
 	drc := decoratedReadCloser{body: r.Body, context: context}
 	r.Body = &drc
