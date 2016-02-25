@@ -1,4 +1,6 @@
 # requestcontext
+[![Build Status](https://travis-ci.org/goodfoo/requestcontext.svg?branch=master)](https://travis-ci.org/goodfoo/requestcontext)
+
 
 Package requestcontext is a contention free http.Request adapter for [golang.org/x/net/context](https://godoc.org/golang.org/x/net/context) for [Go](https://golang.org/).
 
