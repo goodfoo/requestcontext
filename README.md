@@ -1,6 +1,12 @@
-# requestcontext
-[![Build Status](https://travis-ci.org/goodfoo/requestcontext.svg?branch=master)](https://travis-ci.org/goodfoo/requestcontext)
+# requestcontext [![Build Status](https://travis-ci.org/goodfoo/requestcontext.svg?branch=master)](https://travis-ci.org/goodfoo/requestcontext)
 
+## Installation
+
+Run "go get" pointing to a package.
+
+`$ go get github.com/goodfoo/requestcontext`
+
+## Features
 
 Package requestcontext is a contention free http.Request adapter for [golang.org/x/net/context](https://godoc.org/golang.org/x/net/context) for [Go](https://golang.org/).
 
