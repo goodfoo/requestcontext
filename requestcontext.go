@@ -22,7 +22,7 @@ func (w *decoratedReadCloser) Close() error {
 }
 
 // Set this context
-// call Get() prior and wrap the currency context with
+// call Get() prior and wrap the current context with
 // one of the golang.org/x/net/context methods - see example
 func Set(r *http.Request, context context.Context) {
 	drc := decoratedReadCloser{body: r.Body, context: context}
